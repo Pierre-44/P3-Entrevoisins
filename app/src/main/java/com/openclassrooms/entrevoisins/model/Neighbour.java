@@ -30,10 +30,14 @@ public class Neighbour {
 
 
     /**
-     * Constructor
-     * @param id
-     * @param name
-     * @param avatarUrl
+     * Neighbour constructor
+     * @param id long number to identify neighbour
+     * @param name sentence string for name
+     * @param avatarUrl sentence string for Url of avatar
+     * @param address sentence string for user adrese
+     * @param phoneNumber sentence string for user phone number
+     * @param aboutMe text string for neighbour paragraph
+     * @param isFavoris boolean for favoris
      */
     public Neighbour(long id, String name, String avatarUrl, String address,
                      String phoneNumber, String aboutMe, Boolean isFavoris) {
@@ -99,7 +103,7 @@ public class Neighbour {
     }
 
     public void setFavoris(Boolean favoris) {
-        isFavoris = favoris;
+        this.isFavoris = favoris;
     }
 
     @Override
