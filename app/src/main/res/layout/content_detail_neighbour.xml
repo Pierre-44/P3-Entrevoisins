@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="14dp"
-            android:elevation="3dp"
+            android:elevation="1dp"
             app:cardCornerRadius="6dp"
             >
 
@@ -32,7 +32,7 @@
                 android:orientation="vertical"
                 android:paddingVertical="10dp"
                 >
-
+                <!--textview Name-->
                 <TextView
                     android:id="@+id/detailName"
                     android:layout_width="match_parent"
@@ -44,52 +44,102 @@
                     android:textSize="@dimen/neighbour_title"
                     android:textColor="@android:color/black"
                     android:text="Nom Utilisateur"
+                    android:paddingBottom="10dp"
                     >
-                    <!--Ajouter un trait gris 1dp-->
+                    <!--add grey view 1dp high-->
                 </TextView>
 
-                <TextView
-                    android:id="@+id/detailAdresse"
+                <!--linear layout location-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginTop="0dp"
-                    android:layout_marginBottom="0dp"
-                    android:paddingStart="@dimen/activity_horizontal_margin"
-                    android:paddingEnd="@dimen/activity_horizontal_margin"
-                    android:textSize="@dimen/neighbour_text"
-                    android:text="Adresse par défaut"
-                    >
-                    <!--Ajouter l'icone localisation-->
-                </TextView>
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/cardview_padding"
+                    android:paddingBottom="@dimen/cardview_padding">
 
-                <TextView
-                    android:id="@+id/detailPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:paddingStart="@dimen/activity_horizontal_margin"
-                    android:paddingEnd="@dimen/activity_horizontal_margin"
-                    android:layout_marginTop="0dp"
-                    android:textSize="@dimen/neighbour_text"
-                    android:text="+33 6 01 02 03 00"
-                    >
-                    <!--Ajouter l'icone téléphone-->
-                </TextView>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:tint="@color/colorAccent"
+                        app:srcCompat="@drawable/ic_baseline_location_on_24">
+                    </ImageView>
 
-                <TextView
-                    android:id="@+id/detailWeb"
+                    <TextView
+                        android:id="@+id/detailAdresse"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:paddingEnd="@dimen/activity_horizontal_margin"
+                        android:textSize="@dimen/neighbour_text"
+                        android:text="Adresse par défaut"
+                        >
+                    </TextView>
+                </LinearLayout>
+
+                <!--linear layout phone-->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:paddingStart="@dimen/activity_horizontal_margin"
-                    android:paddingEnd="@dimen/activity_horizontal_margin"
-                    android:layout_marginTop="0dp"
-                    android:textSize="@dimen/neighbour_text"
-                    android:text="www.facebook.fr/monNom"
-                    >
-                    <!--Ajouter l'icone web-->
-                </TextView>
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/cardview_padding"
+                    android:paddingBottom="@dimen/cardview_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:tint="@color/colorAccent"
+                        app:srcCompat="@drawable/ic_baseline_local_phone_24">
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/detailPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:paddingEnd="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="0dp"
+                        android:textSize="@dimen/neighbour_text"
+                        android:text="+33 6 01 02 03 00">
+                    </TextView>
+                </LinearLayout>
+
+                <!--linear layout web link-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/cardview_padding"
+                    android:paddingBottom="@dimen/cardview_padding">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:tint="@color/colorAccent"
+                        app:srcCompat="@drawable/ic_baseline_facebook_24">
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/detailWeb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:paddingEnd="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="0dp"
+                        android:textSize="@dimen/neighbour_text"
+                        android:text="www.facebook.fr/monNom"
+                        >
+
+
+                    </TextView>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -100,7 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="14dp"
-            android:elevation="3dp"
+            android:elevation="1dp"
             app:cardCornerRadius="6dp"
 
             >
