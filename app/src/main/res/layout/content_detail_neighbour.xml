@@ -10,58 +10,85 @@
     android:layout_width="match_parent"
     android:padding="@dimen/activity_padding">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingVertical="10dp">
+
         <android.support.v7.widget.CardView
+            android:id="@+id/cardview_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="14dp"
+            android:elevation="3dp"
+            app:cardCornerRadius="6dp"
+            >
+
             <LinearLayout
+                android:id="@+id/linearlayout_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginVertical="@dimen/activity_vertical_margin"
-                android:elevation="@dimen/cardview_default_elevation"
-                android:layout_margin="@dimen/cardview_default_radius"
-                android:layout_marginHorizontal="@dimen/cardview_default_elevation">
+                android:paddingVertical="10dp"
+                >
 
                 <TextView
+                    android:id="@+id/detailName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/text_margin"
-                    android:text="text par defaut nom utilisateur"
-
+                    android:layout_gravity="start"
+                    android:layout_marginTop="0dp"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:textSize="@dimen/neighbour_title"
+                    android:textColor="@android:color/black"
+                    android:text="Nom Utilisateur"
                     >
+                    <!--Ajouter un trait gris 1dp-->
                 </TextView>
 
                 <TextView
+                    android:id="@+id/detailAdresse"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="text par defaut adresse"
-                    android:layout_marginTop="@dimen/text_margin"
-
+                    android:layout_gravity="start"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:textSize="@dimen/neighbour_text"
+                    android:text="Adresse par défaut"
                     >
+                    <!--Ajouter l'icone localisation-->
                 </TextView>
 
                 <TextView
+                    android:id="@+id/detailPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="text par defaut phone number"
-                    android:layout_marginTop="@dimen/text_margin"
+                    android:layout_gravity="start"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="0dp"
+                    android:textSize="@dimen/neighbour_text"
+                    android:text="+33 6 01 02 03 00"
                     >
+                    <!--Ajouter l'icone téléphone-->
                 </TextView>
 
                 <TextView
+                    android:id="@+id/detailWeb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="text par defaut url web"
-                    android:layout_marginTop="@dimen/text_margin"
-                    android:layout_marginBottom="@dimen/text_margin"
+                    android:layout_gravity="start"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="0dp"
+                    android:textSize="@dimen/neighbour_text"
+                    android:text="www.facebook.fr/monNom"
                     >
+                    <!--Ajouter l'icone web-->
                 </TextView>
 
             </LinearLayout>
@@ -69,30 +96,46 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
+            android:id="@+id/cardview_apropos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="14dp"
+            android:elevation="3dp"
+            app:cardCornerRadius="6dp"
 
             >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingVertical="10dp"
+                >
 
                 <TextView
+                    android:id="@+id/aProposTextTitre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="text par defaut A propos de moi"
-                    android:layout_marginTop="@dimen/text_margin"
-                    android:layout_marginBottom="@dimen/text_margin"
+                    android:layout_gravity="start"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="0dp"
+                    android:textSize="@dimen/neighbour_title"
+                    android:textColor="@android:color/black"
+                    android:text="A propos de moi"
+
                     >
                 </TextView>
 
                 <TextView
+                    android:id="@+id/aProposText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="text par defaut du contenu à propos"
-
-                    android:layout_marginBottom="@dimen/text_margin"
+                    android:layout_gravity="start"
+                    android:paddingStart="@dimen/activity_horizontal_margin"
+                    android:paddingEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="0dp"
+                    android:textSize="@dimen/neighbour_text"
+                    android:text="Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot.."
                     >
                 </TextView>
 

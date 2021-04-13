@@ -8,21 +8,24 @@
     tools:context=".ui.neighbour_list.DetailsActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/app_bar_height"
+        android:fitsSystemWindows="true"
         >
             <android.support.design.widget.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
 
                 <ImageView
+                    android:id="@+id/avatar"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:contentDescription="@string/imageAvatar">
-
                 </ImageView>
 
                 <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="56dp">
                     <!--BOUTON FLECHE RETOUR-->
@@ -31,20 +34,22 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <include layout="@layout/content_detail_neighbour" />
+
     <android.support.design.widget.FloatingActionButton
         android:id='@+id/favorisButton'
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
+        android:scaleType="center"
         android:backgroundTint="@color/cardview_light_background"
         android:clickable="true"
+        android:focusable="true"
         android:src="@drawable/ic_star_border_white_24dp"
         android:tint="@color/colorStarYellow"
-        >
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|end">
 
     </android.support.design.widget.FloatingActionButton>
-
-    <include layout="@layout/content_detail_neighbour" />
-
 
 </android.support.design.widget.CoordinatorLayout>
