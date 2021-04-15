@@ -84,7 +84,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
         Neighbour neighbour = new Neighbour(
                 System.currentTimeMillis(),
                 nameInput.getEditText().getText().toString(),
-                mNeighbourImage.getEditText().getText().toString(),
+                mNeighbourImage,
                 addressInput.getEditText().getText().toString(),
                 phoneInput.getEditText().getText().toString(),
                 aboutMeInput.getEditText().getText().toString()
