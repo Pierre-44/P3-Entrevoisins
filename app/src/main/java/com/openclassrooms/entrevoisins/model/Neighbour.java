@@ -7,47 +7,63 @@ import java.util.Objects;
  */
 public class Neighbour {
 
-    /** Identifier */
+    /**
+     * Identifier
+     */
     private long id;
 
-    /** Full name */
+    /**
+     * Full name
+     */
     private String name;
 
-    /** Avatar */
+    /**
+     * Avatar
+     */
     private String avatarUrl;
 
-    /** Adress */
+    /**
+     * Adress
+     */
     private String address;
 
-    /** Phone number */
+    /**
+     * Phone number
+     */
     private String phoneNumber;
 
-    /** About me */
+    /**
+     * About me
+     */
     private String aboutMe;
 
-    /** Favoris me */
+    /**
+     * Favoris me
+     */
     private Boolean isFavoris;
 
 
     /**
      * Neighbour constructor
-     * @param id long number to identify neighbour
-     * @param name sentence string for name
-     * @param avatarUrl sentence string for Url of avatar
-     * @param address sentence string for user adrese
+     *
+     * @param id          long number to identify neighbour
+     * @param name        sentence string for name
+     * @param avatarUrl   sentence string for Url of avatar
+     * @param address     sentence string for user adresse
      * @param phoneNumber sentence string for user phone number
-     * @param aboutMe text string for neighbour paragraph
-     * @param isFavoris boolean for favoris
+     * @param aboutMe     text string for neighbour paragraph
+     * @param isFavoris   boolean for favorite status
      */
-    public Neighbour(long id, String name, String avatarUrl, String address,
-                     String phoneNumber, String aboutMe, Boolean isFavoris) {
+    public Neighbour(
+            long id, String name, String avatarUrl, String address,
+            String phoneNumber, String aboutMe, Boolean isFavoris) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
-        this.isFavoris = isFavoris ;
+        this.isFavoris = isFavoris;
     }
 
     /**

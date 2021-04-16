@@ -14,11 +14,10 @@
     <string name="hint_phone">Téléphone</string>
     <string name="hint_adresse">Adresse</string>
     <string name="hint_about_me">A propose de moi</string>
-
     <string name="neighbour_about_me_tite">A propos de moi</string>
     <string name="neighbour_about_me">
         Bonjour ! Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou
-        plusieurs personnes susceptibles de m'accompagner ! J'aime les jeux de cartes tels la
+        plusieurs personnes susceptibles de m\'accompagner ! J\'aime les jeux de cartes tels la
         belote et le tarot…
     </string>
     <string name="large_text">

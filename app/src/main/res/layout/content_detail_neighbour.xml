@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:orientation="vertical"
         android:paddingVertical="10dp">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardview_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,9 +29,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <!--textview Name-->
+                <!--textview myName-->
                 <TextView
-                    android:id="@+id/detail_Name_neighbour"
+                    android:id="@+id/myName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="@dimen/cardview_horizontal_margin"
@@ -48,7 +48,7 @@
                     android:layout_height="1dp"
                     android:background="@color/colorLightGrey" />
 
-                <!--linear layout location-->
+                <!--linear layout myAdresse-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -59,23 +59,22 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:tint="@color/colorAccent"
-                        app:srcCompat="@drawable/ic_baseline_location_on_24">
-                    </ImageView>
+                        app:srcCompat="@drawable/ic_baseline_location_on_24"></ImageView>
 
                     <TextView
-                        android:id="@+id/detailAdresse"
+                        android:id="@+id/myAdresse"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
                         android:autoLink="map"
-                        android:maxLines="1"
-                        android:singleLine="true"
                         android:ellipsize="marquee"
                         android:focusable="true"
                         android:focusableInTouchMode="true"
+                        android:maxLines="1"
+                        android:singleLine="true"
                         android:text="@string/adresse_default"
                         android:textColor="@color/colorContentText"
                         android:textSize="@dimen/neighbour_text"
@@ -85,7 +84,7 @@
 
                 </LinearLayout>
 
-                <!--linear layout phone-->
+                <!--linear layout myPhone-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -96,12 +95,13 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:tint="@color/colorAccent"
-                        app:srcCompat="@drawable/ic_baseline_local_phone_24" />
+                        app:srcCompat="@drawable/ic_baseline_local_phone_24"
+                        />
 
                     <TextView
-                        android:id="@+id/detailPhone"
+                        android:id="@+id/myPhone"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -112,7 +112,7 @@
                         android:textSize="@dimen/neighbour_text" />
                 </LinearLayout>
 
-                <!--linear layout web link-->
+                <!--linear layout myWeb-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -123,12 +123,12 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:paddingStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:tint="@color/colorAccent"
                         app:srcCompat="@drawable/ic_baseline_language_24" />
 
                     <TextView
-                        android:id="@+id/detailWeb"
+                        android:id="@+id/myWeb"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -141,9 +141,9 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardview_apropos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
             app:cardCornerRadius="@dimen/cardview_corner_radius"
 
             >
-
+            <!--linear layout aboutMe-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -177,7 +177,7 @@
                     android:background="@color/colorLightGrey" />
 
                 <TextView
-                    android:id="@+id/aProposText"
+                    android:id="@+id/aboutMeText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
@@ -188,11 +188,11 @@
                     android:text="@string/neighbour_about_me"
                     android:textColor="@color/colorContentText"
                     android:textSize="@dimen/neighbour_text">
-                    <!-- LA JUSTIFICATION DU TEXT NE FONCTIONNE PAS -->
+                    <!-- LA JUSTIFICATION DU TEXT NE FONCTIONNE PAS !-->
                 </TextView>
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</androidx.core.widget.NestedScrollView>
