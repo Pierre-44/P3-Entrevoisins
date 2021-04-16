@@ -5,11 +5,15 @@
     <string name="activity_new_neighbour">New neighbour</string>
     <string name="title_activity_neighbour_details">ScrollingActivity</string>
     <string name="action_settings">Settings</string>
-    <string name="image_Avatar_of_neighbour">contentDescription</string>
+    <string name="image_avatar_of_neighbour">contentDescription</string>
     <string name="neighbour_name">Nom du voisin</string>
-    <string name="Adresse_Default">Mon adresse est vraiment tres longue à écrire</string>
-    <string name="Tel_Default">+33 6 01 02 03 00</string>
-    <string name="Web_Default">www.facebook.fr/monNom</string>
+    <string name="adresse_default">Mon adresse est vraiment tres longue à écrire</string>
+    <string name="phone_default">+33 6 01 02 03 00</string>
+    <string name="web_default">www.facebook.fr/monNom</string>
+    <string name="hint_name">Nom</string>
+    <string name="hint_phone">Téléphone</string>
+    <string name="hint_adresse">Adresse</string>
+    <string name="hint_about_me">A propose de moi</string>
 
     <string name="neighbour_about_me_tite">A propos de moi</string>
     <string name="neighbour_about_me">

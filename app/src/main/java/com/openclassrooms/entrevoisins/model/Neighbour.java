@@ -29,15 +29,6 @@ public class Neighbour {
     private Boolean isFavoris;
 
 
-    public Neighbour(long id, String name, String avatarUrl, String address, String phoneNumber, String aboutMe) {
-        this.id = id;
-        this.name = name;
-        this.avatarUrl = avatarUrl;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.aboutMe = aboutMe;
-    }
-
     /**
      * Neighbour constructor
      * @param id long number to identify neighbour
@@ -58,7 +49,6 @@ public class Neighbour {
         this.aboutMe = aboutMe;
         this.isFavoris = isFavoris ;
     }
-
 
     /**
      * Gets id.

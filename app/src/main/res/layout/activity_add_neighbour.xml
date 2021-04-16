@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -34,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Name"
+                android:hint="@string/hint_name"
                 android:inputType="textPersonName" />
         </android.support.design.widget.TextInputLayout>
 
@@ -50,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Phone number"
+                android:hint="@string/hint_phone"
                 android:inputType="phone" />
         </android.support.design.widget.TextInputLayout>
 
@@ -66,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Address"
+                android:hint="@string/hint_adresse"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
@@ -84,7 +85,7 @@
                 android:lines="4"
                 android:minLines="4"
                 android:ems="10"
-                android:hint="About me"
+                android:hint="@string/hint_about_me"
                 android:inputType="textMultiLine" />
         </android.support.design.widget.TextInputLayout>
 

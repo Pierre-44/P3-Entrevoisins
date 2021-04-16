@@ -10,6 +10,7 @@ public class DI {
 
     private static NeighbourApiService service = new DummyNeighbourApiService();
 
+
     /**
      * Get an instance on @{@link NeighbourApiService}
      * @return

@@ -51,7 +51,7 @@ public class NeighboursListTest {
     @Test
     public void myNeighboursList_shouldNotBeEmpty() {
         // First scroll to the position that needs to be matched and click on it.
-        onView(ViewMatchers.withId(R.id.list_neighbours))
+        onView(ViewMatchers.withId(R.id.fragment_list_neighbours))
                 .check(matches(hasMinimumChildCount(1)));
     }
 
@@ -61,11 +61,36 @@ public class NeighboursListTest {
     @Test
     public void myNeighboursList_deleteAction_shouldRemoveItem() {
         // Given : We remove the element at position 2
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT));
+        onView(ViewMatchers.withId(R.id.fragment_list_neighbours)).check(withItemCount(ITEMS_COUNT));
         // When perform a click on a delete icon
-        onView(ViewMatchers.withId(R.id.list_neighbours))
+        onView(ViewMatchers.withId(R.id.fragment_list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
         // Then : the number of element is 11
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
+        onView(ViewMatchers.withId(R.id.fragment_list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
+    }
+
+    /**
+     * When we clic on fab button, the  to list Activity_add_neighbour be open
+     */
+    @Test
+    public void myNeighboursList_FabAction_shouldOpenActivity_add_neighbour() {
+        // Given : Click Neighbour Fab Button
+
+        // When : we Are On Neighbour list
+
+        // Then : Activity_add_neighbour to be open
+    }
+
+    /**
+     * When we save a new neigbour, the item be add to list
+     */
+    @Test
+    public void GivenClickSaveButton_WhenWeAreOnNeighborAddActivityThenNeighborAddToList() {
+        // Given : We complete Neighbor_Add_Activity form
+
+        //When : perform click save Button
+
+        //Then : Neighbor Add To List an be 13
+
     }
 }

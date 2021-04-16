@@ -5,7 +5,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
     <dimen name="activity_padding">6dp</dimen>
-    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="app_bar_height">250dp</dimen>
     <dimen name="neighbour_title">26sp</dimen>
     <dimen name="neighbour_text">16sp</dimen>
     <dimen name="cardview_horizontal_margin">16dp</dimen>

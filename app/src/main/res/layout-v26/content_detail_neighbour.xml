@@ -73,7 +73,7 @@
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
                         android:autoLink="map"
-                        android:text="@string/Adresse_Default"
+                        android:text="@string/adresse_default"
                         android:maxLines="1"
                         android:ellipsize="end"
                         android:textColor="@color/colorContentText"
@@ -103,7 +103,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                        android:text="@string/Tel_Default"
+                        android:text="@string/phone_default"
                         android:autoLink="phone"
                         android:textSize="@dimen/neighbour_text"
                         android:textColor="@color/colorContentText">
@@ -132,7 +132,7 @@
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
                         android:autoLink="web"
-                        android:text="@string/Web_Default"
+                        android:text="@string/web_default"
                         android:textSize="@dimen/neighbour_text"
                         android:textColor="@color/colorContentText">
                     </TextView>
