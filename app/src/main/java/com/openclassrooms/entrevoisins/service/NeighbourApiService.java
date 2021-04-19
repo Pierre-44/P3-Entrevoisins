@@ -27,12 +27,30 @@ public interface NeighbourApiService {
      * @param neighbour
      */
     void createNeighbour(Neighbour neighbour);
+
+    // TODO : addNeighbourOnFavoris : method to modified favoris parameter from false to true
+    /**
+     * Add neighbour on favoris.
+     * @param neighbour the neighbour
+     */
+    void addNeighbourOnFavoris(Neighbour neighbour);
+
+    // TODO : removeNeighbourOnFavoris : method to modified favoris parameter from true to false
+    /**
+     * Remove neighbour on favoris.
+     * @param neighbour the neighbour
+     */
+    void removeNeighbourOnFavoris(Neighbour neighbour);
+
+    // TODO :  recupère la liste des voisins ayant le status favoris à true
+    List<Neighbour> getNeighboursFavoris();
+
+
 }
 
-// addNeighbourOnFavoris
-//modifie le favoris false on true
 
-// removeNeighbourOnFavoris
-//modifie le favoris true en false
 
-// recupère la liste des voisins ayant le status favoris à true
+
+
+
+

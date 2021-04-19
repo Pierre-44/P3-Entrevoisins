@@ -1,5 +1,6 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -37,12 +38,19 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //wire widgets
-        mAddress = findViewById(R.id.myAdress);
+
+
         mAvatar = findViewById(R.id.avatar);
+        mName = findViewById(R.id.name);
+        mAddress = findViewById(R.id.address);
+        mPhone = findViewById(R.id.phone);
+        mWeb = findViewById(R.id.web);
+        mAboutMeText = findViewById(R.id.about_me_text);
         //TODO : etc...
 
         initView();
 
+        this.configureToolbar();
     }
 
     private void initView (){
@@ -55,6 +63,17 @@ public class NeighbourDetailActivity extends AppCompatActivity {
                 .into(mAvatar);
         //TODO : etc...
 
+    }
+
+    private void configureToolbar(){
+        //Get the toolbar (Serialise)
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //Set the toolbar
+        setSupportActionBar(toolbar);
+        //Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+        //Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
     }
 
 
