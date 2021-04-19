@@ -1,6 +1,8 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,11 +54,14 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
             }
         });
-        // onclick listner
+
+        // onclickListner go to DetailNeighbourActivity
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventBus.getDefault().post(new DetailNeighbourEvent(neighbour));
+                Intent goToDetailNeighbourActivity = new Intent(holder.itemView.getContext(), NeighbourDetailActivity.class);
+                goToDetailNeighbourActivity.putExtra("Neighbour",mNeighbours.get(position));
+                holder.itemView.getContext().startActivity(goToDetailNeighbourActivity);
 
             }
         });

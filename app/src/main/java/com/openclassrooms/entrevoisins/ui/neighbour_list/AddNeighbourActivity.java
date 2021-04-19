@@ -93,7 +93,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
                 phoneInput.getEditText().getText().toString(),
                 addressInput.getEditText().getText().toString(),
                 aboutMeInput.getEditText().getText().toString(),
-                Boolean.FALSE
+                false
         );
         mApiService.createNeighbour(neighbour);
         finish();

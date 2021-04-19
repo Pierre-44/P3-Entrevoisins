@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,8 +8,7 @@
     android:backgroundTint="@color/colorAccent"
     android:padding="@dimen/activity_padding"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.neighbour_list.DetailsActivity"
-    tools:showIn="@layout/activity_details_neighbour">
+    tools:showIn="@layout/activity_neighbour_detail">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
                 android:orientation="vertical">
                 <!--textview myName-->
                 <TextView
-                    android:id="@+id/myName"
+                    android:id="@+id/Name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="@dimen/cardview_horizontal_margin"
@@ -61,24 +61,19 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:tint="@color/colorAccent"
-                        app:srcCompat="@drawable/ic_baseline_location_on_24"></ImageView>
+                        app:srcCompat="@drawable/ic_baseline_location_on_24" />
 
                     <TextView
-                        android:id="@+id/myAdresse"
+                        android:id="@+id/myAdress"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
                         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                        android:autoLink="map"
-                        android:ellipsize="marquee"
-                        android:focusable="true"
-                        android:focusableInTouchMode="true"
                         android:maxLines="1"
                         android:singleLine="true"
                         android:text="@string/adresse_default"
                         android:textColor="@color/colorContentText"
-                        android:textSize="@dimen/neighbour_text"
-                        tools:ignore="EllipsizeMaxLines">
+                        android:textSize="@dimen/neighbour_text">
 
                     </TextView>
 
