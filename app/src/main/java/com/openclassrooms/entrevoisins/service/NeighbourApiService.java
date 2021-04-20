@@ -42,7 +42,9 @@ public interface NeighbourApiService {
      */
     void removeNeighbourOnFavoris(Neighbour neighbour);
 
-    // TODO :  recupère la liste des voisins ayant le status favoris à true
+    // TODO :  getNeighboursFavoris : method to get all of favoris list
+
+
     List<Neighbour> getNeighboursFavoris();
 
 

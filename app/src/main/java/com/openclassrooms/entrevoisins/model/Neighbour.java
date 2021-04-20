@@ -34,6 +34,11 @@ public class Neighbour implements Serializable {
     private String phoneNumber;
 
     /**
+     * Web link
+     */
+    private String weblink;
+
+    /**
      * About me
      */
     private String aboutMe;
@@ -43,7 +48,6 @@ public class Neighbour implements Serializable {
      */
     private Boolean isFavoris;
 
-
     /**
      * Neighbour constructor
      *
@@ -52,17 +56,19 @@ public class Neighbour implements Serializable {
      * @param avatarUrl   sentence string for Url of avatar
      * @param address     sentence string for user adresse
      * @param phoneNumber sentence string for user phone number
+     * @param weblink     sentence string for user weblink
      * @param aboutMe     text string for neighbour paragraph
      * @param isFavoris   boolean for favorite status
      */
     public Neighbour(
             long id, String name, String avatarUrl, String address,
-            String phoneNumber, String aboutMe, Boolean isFavoris) {
+            String phoneNumber,String weblink, String aboutMe, Boolean isFavoris) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.weblink = weblink;
         this.aboutMe = aboutMe;
         this.isFavoris = isFavoris;
     }
@@ -158,9 +164,27 @@ public class Neighbour implements Serializable {
     }
 
     /**
+     * Gets weblink.
+     *
+     * @return the weblink
+     */
+    public String getWeblink() {
+        return weblink;
+    }
+
+    /**
+     * Sets weblink.
+     *
+     * @param weblink the weblink
+     */
+    public void setWeblink(String weblink) {
+        this.weblink = weblink;
+    }
+
+    /**
      * Gets about me.
      *
-     * @return the about me
+     * @return the about me text
      */
     public String getAboutMe() {
         return aboutMe;
@@ -169,7 +193,7 @@ public class Neighbour implements Serializable {
     /**
      * Sets about me.
      *
-     * @param aboutMe the about me
+     * @param aboutMe the about me text
      */
     public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
@@ -180,7 +204,7 @@ public class Neighbour implements Serializable {
      *
      * @return the favoris
      */
-    public Boolean getFavoris() {
+    public Boolean isFavoris() {
         return isFavoris;
     }
 

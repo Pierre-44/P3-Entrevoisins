@@ -48,7 +48,7 @@
                     android:layout_height="1dp"
                     android:background="@color/colorLightGrey" />
 
-                <!--linear layout myAdresse-->
+                <!--linear layout adresse-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
 
                 </LinearLayout>
 
-                <!--linear layout myPhone-->
+                <!--linear layout phone-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/phone"
+                        android:id="@+id/phoneNumber"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -106,7 +106,7 @@
                         android:textSize="@dimen/neighbour_text" />
                 </LinearLayout>
 
-                <!--linear layout myWeb-->
+                <!--linear layout weblink-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -122,7 +122,7 @@
                         app:srcCompat="@drawable/ic_baseline_language_24" />
 
                     <TextView
-                        android:id="@+id/web"
+                        android:id="@+id/weblink"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -137,7 +137,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardview_apropos"
+            android:id="@+id/cardview_about_me"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="14dp"

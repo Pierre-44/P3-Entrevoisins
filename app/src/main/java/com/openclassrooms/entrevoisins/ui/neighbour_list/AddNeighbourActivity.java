@@ -30,10 +30,12 @@ public class AddNeighbourActivity extends AppCompatActivity {
     ImageView avatar;
     @BindView(R.id.nameLyt)
     TextInputLayout nameInput;
-    @BindView(R.id.phoneNumberLyt)
-    TextInputLayout phoneInput;
     @BindView(R.id.addressLyt)
     TextInputLayout addressInput;
+    @BindView(R.id.phoneNumberLyt)
+    TextInputLayout phoneInput;
+    @BindView(R.id.weblinkLyt)
+    TextInputLayout weblinkInput;
     @BindView(R.id.aboutMeLyt)
     TextInputLayout aboutMeInput;
     @BindView(R.id.create)
@@ -47,7 +49,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_neighbour);
         ButterKnife.bind(this);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mApiService = DI.getNeighbourApiService();
         init();
     }
@@ -90,8 +92,9 @@ public class AddNeighbourActivity extends AppCompatActivity {
                 System.currentTimeMillis(),
                 mNeighbourImage.getBytes().toString(),
                 nameInput.getEditText().getText().toString(),
-                phoneInput.getEditText().getText().toString(),
                 addressInput.getEditText().getText().toString(),
+                phoneInput.getEditText().getText().toString(),
+                weblinkInput.getEditText().getText().toString(),
                 aboutMeInput.getEditText().getText().toString(),
                 false
         );

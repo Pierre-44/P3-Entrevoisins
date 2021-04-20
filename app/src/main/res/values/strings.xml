@@ -12,6 +12,7 @@
     <string name="web_default">www.facebook.fr/monNom</string>
     <string name="hint_name">Nom</string>
     <string name="hint_phone">Téléphone</string>
+    <string name="hint_weblink">site web</string>
     <string name="hint_adresse">Adresse</string>
     <string name="hint_about_me">A propose de moi</string>
     <string name="neighbour_about_me_tite">A propos de moi</string>

@@ -64,6 +64,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:scaleType="center"
         android:backgroundTint="@color/cardview_light_background"
+        app:borderWidth="0dp"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_star_border_white_24dp"
