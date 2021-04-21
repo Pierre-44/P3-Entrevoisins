@@ -31,7 +31,7 @@
                 android:orientation="vertical">
                 <!--textview myName-->
                 <TextView
-                    android:id="@+id/Name"
+                    android:id="@+id/text_name_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="@dimen/cardview_horizontal_margin"
@@ -64,7 +64,7 @@
                         app:srcCompat="@drawable/ic_baseline_location_on_24" />
 
                     <TextView
-                        android:id="@+id/adress"
+                        android:id="@+id/text_adress_detail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -96,7 +96,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/phoneNumber"
+                        android:id="@+id/text_phone_number_detail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -122,7 +122,7 @@
                         app:srcCompat="@drawable/ic_baseline_language_24" />
 
                     <TextView
-                        android:id="@+id/weblink"
+                        android:id="@+id/text_web_link_detail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -137,7 +137,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardview_about_me"
+            android:id="@+id/cardview_about_me_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="14dp"
@@ -153,7 +153,7 @@
                 android:paddingVertical="10dp">
 
                 <TextView
-                    android:id="@+id/about_me_Title"
+                    android:id="@+id/text_about_me_title_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="@dimen/cardview_horizontal_margin"
@@ -170,7 +170,7 @@
                     android:background="@color/colorLightGrey" />
 
                 <TextView
-                    android:id="@+id/about_me_text"
+                    android:id="@+id/text_about_me_text_content_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"

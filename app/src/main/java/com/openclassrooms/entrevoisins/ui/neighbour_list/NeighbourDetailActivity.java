@@ -39,23 +39,20 @@ public class NeighbourDetailActivity extends AppCompatActivity {
 
         mApiService = DI.getNeighbourApiService();
 
+        settingFavoriteButton();
+
+        //widgets connection
+        mAvatar = findViewById(R.id.image_avatar_detail);
+        mFavoriteButton = findViewById(R.id.button_favoris_text);
+        mName = findViewById(R.id.text_name_detail);
+        mAddress = findViewById(R.id.text_adress_detail);
+        mPhone = findViewById(R.id.text_phone_number_detail);
+        mWeblink = findViewById(R.id.text_web_link_detail);
+        mAboutMeText = findViewById(R.id.text_about_me_text_content_detail);
+        mToolbar = findViewById(R.id.toolbar_detail);
 
         initView();
         configureToolbar();
-        settingFavoriteButton();
-
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        //widgets connection
-        mAvatar = findViewById(R.id.avatar);
-        mFavoriteButton = findViewById(R.id.favoris_button);
-        mName = findViewById(R.id.name);
-        mAddress = findViewById(R.id.address);
-        mPhone = findViewById(R.id.phoneNumber);
-        mWeblink = findViewById(R.id.weblink);
-        mAboutMeText = findViewById(R.id.about_me_text);
-        mToolbar = findViewById(R.id.toolbar);
     }
 
     // Initialisation of view
