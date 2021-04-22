@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -20,8 +21,11 @@ import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
+import butterknife.OnClick;
+
 public class NeighbourDetailActivity extends AppCompatActivity {
 
+    // a déplacer dans un fragment
     private ImageView mAvatar;
     private FloatingActionButton mFavoriteButton;
     private TextView mName;
@@ -33,21 +37,20 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     private Toolbar mToolbar;
 
     private NeighbourApiService mApiService;
+    public Neighbour profil;
 
-    private Neighbour profil;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neighbour_detail);
-
         mApiService = DI.getNeighbourApiService();
 
         settingFavoriteButton();
 
         //widgets connection
         mAvatar = findViewById(R.id.image_avatar_detail);
-        mFavoriteButton = findViewById(R.id.button_favoris_text);
+        mFavoriteButton = findViewById(R.id.button_favoris);
         mName = findViewById(R.id.text_name_detail);
         mAddress = findViewById(R.id.text_adress_detail);
         mPhone = findViewById(R.id.text_phone_number_detail);
@@ -88,7 +91,10 @@ public class NeighbourDetailActivity extends AppCompatActivity {
 
     }
 
+
+
     //Favorites button control
+
     @SuppressLint("ResourceAsColor")
     private void setFavoriteButtonDisable() {
         mFavoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
@@ -102,7 +108,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     }
 
     private void settingFavoriteButton() {
-        if (!profil.isFavoris()) {
+        if (!profil.getIsFavoris()) {
             setFavoriteButtonDisable();
         } else
             setFavoriteButtonEnable();
@@ -111,7 +117,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
 
     private void onClick(View v) {
 
-        if (!profil.isFavoris()) {
+        if (!profil.getIsFavoris()) {
             mApiService.addNeighbourOnFavoris(profil);
             setFavoriteButtonEnable();
         } else {

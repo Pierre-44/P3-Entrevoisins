@@ -50,19 +50,18 @@ public class Neighbour implements Serializable {
 
     /**
      * Neighbour constructor
-     *
-     * @param id          long number to identify neighbour
+     *  @param id          long number to identify neighbour
      * @param name        sentence string for name
      * @param avatarUrl   sentence string for Url of avatar
      * @param address     sentence string for user adress
      * @param phoneNumber sentence string for user phone number
      * @param weblink     sentence string for user weblink
      * @param aboutMe     text string for neighbour paragraph
-     * @param isFavoris   boolean for favorite status
+     * @param isFavorite
      */
     public Neighbour(
             long id, String name, String avatarUrl, String address,
-            String phoneNumber,String weblink, String aboutMe, Boolean isFavoris) {
+            String phoneNumber, String weblink, String aboutMe, boolean isFavorite) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
@@ -78,9 +77,7 @@ public class Neighbour implements Serializable {
      *
      * @return the id
      */
-    public long getId() {
-        return id;
-    }
+    public long getId() { return id; }
 
     /**
      * Sets id.
@@ -204,7 +201,7 @@ public class Neighbour implements Serializable {
      *
      * @return the favoris
      */
-    public Boolean isFavoris() {
+    public boolean getIsFavoris() {
         return isFavoris;
     }
 
@@ -213,7 +210,7 @@ public class Neighbour implements Serializable {
      *
      * @param favoris the favoris
      */
-    public void setFavoris(Boolean favoris) {
+    public void setFavoris(boolean favoris) {
         this.isFavoris = favoris;
     }
 

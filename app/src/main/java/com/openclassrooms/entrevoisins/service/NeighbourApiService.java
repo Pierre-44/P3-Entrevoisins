@@ -42,11 +42,14 @@ public interface NeighbourApiService {
      */
     void removeNeighbourOnFavoris(Neighbour neighbour);
 
-    // TODO :  getNeighboursFavoris : method to get all of favoris list
+    // TODO :  getNeighboursFavoris : method to get all of favorite list
 
-
+    /**
+     * Get Favorite Neighbours
+     *
+     * @return {@link List Favorite}
+     */
     List<Neighbour> getNeighboursFavoris();
-
 
 }
 
