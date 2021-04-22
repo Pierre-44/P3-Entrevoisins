@@ -1,15 +1,19 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
+import android.annotation.SuppressLint;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.ImageViewCompat;
+
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
@@ -56,7 +60,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     }
 
     // Initialisation of view
-    private void initView (){
+    private void initView() {
 
         //Get clicked neighbour from Extra
         Neighbour neighbour = (Neighbour) getIntent().getSerializableExtra("Neighbour");
@@ -71,7 +75,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         mAboutMeText.setText(neighbour.getAboutMe());
     }
 
-    private void configureToolbar(){
+    private void configureToolbar() {
         //Get the toolbar (Serialise)
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //Set the toolbar
@@ -85,13 +89,16 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     }
 
     //Favorites button control
-
-    private void setFavoriteButtonDisable(){
+    @SuppressLint("ResourceAsColor")
+    private void setFavoriteButtonDisable() {
         mFavoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
+        ImageViewCompat.setImageTintList(mFavoriteButton, ColorStateList.valueOf(R.color.colorStarYellow));
     }
 
-    private void setFavoriteButtonEnable(){
+    @SuppressLint("ResourceAsColor")
+    private void setFavoriteButtonEnable() {
         mFavoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
+        ImageViewCompat.setImageTintList(mFavoriteButton, ColorStateList.valueOf(R.color.colorStarYellow));
     }
 
     private void settingFavoriteButton() {
@@ -99,15 +106,17 @@ public class NeighbourDetailActivity extends AppCompatActivity {
             setFavoriteButtonDisable();
         } else
             setFavoriteButtonEnable();
-        mFavoriteButton.setOnClickListener(v -> {
+        mFavoriteButton.setOnClickListener(this::onClick);
+    }
 
-            if (!profil.isFavoris()) {
-                mApiService.addNeighbourOnFavoris(profil);
-                setFavoriteButtonEnable();
-            } else {
-                mApiService.removeNeighbourOnFavoris(profil);
-                setFavoriteButtonDisable();
-            }
-        });
+    private void onClick(View v) {
+
+        if (!profil.isFavoris()) {
+            mApiService.addNeighbourOnFavoris(profil);
+            setFavoriteButtonEnable();
+        } else {
+            mApiService.removeNeighbourOnFavoris(profil);
+            setFavoriteButtonDisable();
+        }
     }
 }

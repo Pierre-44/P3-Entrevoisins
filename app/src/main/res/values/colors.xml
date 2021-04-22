@@ -6,5 +6,6 @@
     <color name="colorStarYellow">#FDD835</color>
     <color name="colorLightGrey">#C8C8C8</color>
     <color name="colorTitleText">#323232</color>
+    <color name="colorAppBarText">#FFFFFF</color>
     <color name="colorContentText">#7D7D7D</color>
 </resources>

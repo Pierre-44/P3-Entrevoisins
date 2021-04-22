@@ -54,7 +54,7 @@ public class Neighbour implements Serializable {
      * @param id          long number to identify neighbour
      * @param name        sentence string for name
      * @param avatarUrl   sentence string for Url of avatar
-     * @param address     sentence string for user adresse
+     * @param address     sentence string for user adress
      * @param phoneNumber sentence string for user phone number
      * @param weblink     sentence string for user weblink
      * @param aboutMe     text string for neighbour paragraph
@@ -70,7 +70,7 @@ public class Neighbour implements Serializable {
         this.phoneNumber = phoneNumber;
         this.weblink = weblink;
         this.aboutMe = aboutMe;
-        this.isFavoris = isFavoris;
+        this.isFavoris = false;
     }
 
     /**
