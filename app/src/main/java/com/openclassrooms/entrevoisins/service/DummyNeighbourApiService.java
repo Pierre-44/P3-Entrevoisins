@@ -58,8 +58,10 @@ public class DummyNeighbourApiService implements NeighbourApiService {
      */
     @Override
     public void addNeighbourOnFavoris(Neighbour neighbour) {
-        neighbour.setFavoris(true);
+        int index = neighbours.indexOf(neighbour);
+        neighbours.get(index).setFavoris(true);
     }
+
 
     /**
      *
@@ -67,7 +69,8 @@ public class DummyNeighbourApiService implements NeighbourApiService {
      */
     @Override
     public void removeNeighbourOnFavoris(Neighbour neighbour) {
-        neighbour.setFavoris(false);
+        int index = neighbours.indexOf(neighbour);
+        neighbours.get(index).setFavoris(false);
     }
 
 }

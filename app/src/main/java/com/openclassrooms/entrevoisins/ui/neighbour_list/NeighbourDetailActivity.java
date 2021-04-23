@@ -45,8 +45,8 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neighbour_detail);
         mApiService = DI.getNeighbourApiService();
+        profil = (Neighbour) getIntent().getSerializableExtra("Neighbour");
 
-        settingFavoriteButton();
 
         //widgets connection
         mAvatar = findViewById(R.id.image_avatar_detail);
@@ -58,35 +58,37 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         mAboutMeText = findViewById(R.id.text_about_me_text_content_detail);
         mToolbar = findViewById(R.id.toolbar_detail);
 
-        initView();
         configureToolbar();
+        settingFavoriteButton();
+        initView();
+
     }
 
     // Initialisation of view
     private void initView() {
 
         //Get clicked neighbour from Extra
-        Neighbour neighbour = (Neighbour) getIntent().getSerializableExtra("Neighbour");
 
         Glide.with(this)
-                .load(neighbour.getAvatarUrl())
+                .load(profil.getAvatarUrl())
                 .into(mAvatar);
-        mName.setText(neighbour.getName());
-        mAddress.setText(neighbour.getAddress());
-        mPhone.setText(neighbour.getPhoneNumber());
-        mWeblink.setText(neighbour.getName());
-        mAboutMeText.setText(neighbour.getAboutMe());
+        mName.setText(profil.getName());
+        mAddress.setText(profil.getAddress());
+        mPhone.setText(profil.getPhoneNumber());
+        mWeblink.setText(profil.getName());
+        mAboutMeText.setText(profil.getAboutMe());
     }
 
     private void configureToolbar() {
         //Get the toolbar (Serialise)
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //Set the toolbar
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Get a support ActionBar corresponding to this toolbar
-        ActionBar ab = getSupportActionBar();
+        //ActionBar ab = getSupportActionBar();
         //Enable the Up button
-        ab.setDisplayHomeAsUpEnabled(true);
+        //ab.setDisplayHomeAsUpEnabled(true);
         //Disable Title
 
     }
