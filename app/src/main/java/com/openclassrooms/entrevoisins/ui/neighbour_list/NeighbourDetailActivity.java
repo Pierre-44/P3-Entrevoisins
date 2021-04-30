@@ -2,16 +2,15 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 
 import com.bumptech.glide.Glide;
@@ -21,11 +20,8 @@ import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
-import butterknife.OnClick;
-
 public class NeighbourDetailActivity extends AppCompatActivity {
 
-    // a déplacer dans un fragment
     private ImageView mAvatar;
     private FloatingActionButton mFavoriteButton;
     private TextView mName;
@@ -68,7 +64,6 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     private void initView() {
 
         //Get clicked neighbour from Extra
-
         Glide.with(this)
                 .load(profil.getAvatarUrl())
                 .into(mAvatar);
@@ -80,16 +75,13 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     }
 
     private void configureToolbar() {
-        //Get the toolbar (Serialise)
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         //Set the toolbar
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //Get a support ActionBar corresponding to this toolbar
-        //ActionBar ab = getSupportActionBar();
         //Enable the Up button
-        //ab.setDisplayHomeAsUpEnabled(true);
-        //Disable Title
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //Set name on toolbar
+        getSupportActionBar().setTitle(profil.getName());
 
     }
 

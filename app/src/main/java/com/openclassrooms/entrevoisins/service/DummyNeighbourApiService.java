@@ -44,12 +44,12 @@ public class DummyNeighbourApiService implements NeighbourApiService {
      */
     @Override
     public List<Neighbour> getNeighboursFavoris(){
-        List<Neighbour> FavNeighbours = new ArrayList<>();
+        List<Neighbour> favNeighbours = new ArrayList<>();
         for (int i = 0; i< neighbours.size(); i++)
             if (neighbours.get(i).getIsFavoris()){
-                FavNeighbours.add(neighbours.get(i));
+                favNeighbours.add(neighbours.get(i));
             }
-        return FavNeighbours;
+        return favNeighbours;
     }
 
     /**

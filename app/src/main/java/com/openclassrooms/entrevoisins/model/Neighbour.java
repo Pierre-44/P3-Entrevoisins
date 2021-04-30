@@ -50,7 +50,8 @@ public class Neighbour implements Serializable {
 
     /**
      * Neighbour constructor
-     *  @param id          long number to identify neighbour
+     *
+     * @param id          long number to identify neighbour
      * @param name        sentence string for name
      * @param avatarUrl   sentence string for Url of avatar
      * @param address     sentence string for user adress
@@ -77,7 +78,9 @@ public class Neighbour implements Serializable {
      *
      * @return the id
      */
-    public long getId() { return id; }
+    public long getId() {
+        return id;
+    }
 
     /**
      * Sets id.
