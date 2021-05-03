@@ -2,7 +2,6 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,6 +14,8 @@ import androidx.core.widget.ImageViewCompat;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
@@ -34,6 +35,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
 
     private NeighbourApiService mApiService;
     public Neighbour profil;
+    private boolean mNameStartVowel;
 
 
     @Override
@@ -74,8 +76,10 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         mAboutMeText.setText(profil.getAboutMe());
     }
 
+    /**
+     * Configure toolbar
+     */
     private void configureToolbar() {
-
         //Set the toolbar
         setSupportActionBar(mToolbar);
         //Enable the Up button
@@ -84,9 +88,6 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(profil.getName());
 
     }
-
-
-
     //Favorites button control
 
     @SuppressLint("ResourceAsColor")
@@ -119,4 +120,50 @@ public class NeighbourDetailActivity extends AppCompatActivity {
             setFavoriteButtonDisable();
         }
     }
+
+
+
+
+    /**
+     * Add neighbour in favorites, set message and pass it to method to display a snackBar and call method to properly set FAB
+     */
+    private void addNeighbourOnFavoris(View view) {
+        String toastThis;
+        if (mNameStartVowel) {
+            toastThis = "Ajout d'" + mName.getText() + " aux favoris !";
+        } else {
+            toastThis = "Ajout de " + mName.getText() + " aux favoris !";
+        }
+        snackBarThis(toastThis, view);
+        setFavoriteButtonEnable();
+        mApiService.addNeighbourOnFavoris(profil);
+    }
+
+    /**
+     * Remove neighbour from favorites, set msg and pass it to method to display a snackBar and call method to properly set FAB
+     */
+     private void removeNeighbourOnFavoris(View view) {
+     String toastThis;
+     if (mNameStartVowel) {
+     toastThis = "Retrait d'" + mName.getText() + " des favoris.";
+     } else {
+     toastThis = "Retrait de " + mName.getText() + " des favoris.";
+     }
+     snackBarThis(toastThis, view);
+     setFavoriteButtonDisable();
+     mApiService.removeNeighbourOnFavoris(profil);
+     }
+
+    /**
+     * Display snackBar to confirm action on favorite button on neighbour
+     *
+     * @param toastThis this msg to display
+     * @param view
+     */
+    private void snackBarThis(String toastThis, View view) {
+        Snackbar.make(view, toastThis, Snackbar.LENGTH_SHORT).setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_SLIDE).setBackgroundTint(getResources().getColor(R.color.colorLightGrey)).show();
+    }
 }
+
+
+

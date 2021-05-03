@@ -16,6 +16,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test on Neighbour service
@@ -57,25 +58,32 @@ public class NeighbourServiceTest {
     }
     // Check that the addNeighbourOnFavoris method give the list of favorite Neighbors
     @Test
-    public void addNeighbourOnFavorisListWithSuccess() {
-        int nbFavNeighbours = serviceApi.getNeighboursFavoris().size();
-        Neighbour favNeighbours = serviceApi.getNeighboursFavoris().get(0);
-        serviceApi.addNeighbourOnFavoris(favNeighbours);
-        assertEquals(serviceApi.getNeighboursFavoris().size(),nbFavNeighbours + 1);
+    public void getFavoriteNeighboursWithSuccess() {
+        int neighboursListSize = serviceApi.getNeighbours().size();
+        serviceApi.getNeighbours().get(neighboursListSize - 1).setFavoris(true);
+        serviceApi.getNeighbours().get(neighboursListSize - 2).setFavoris(true);
+        serviceApi.getNeighbours().get(neighboursListSize - 3).setFavoris(true);
+        List<Neighbour> expectedFavoriteNeighbours = serviceApi.getNeighbours().subList(neighboursListSize - 3, neighboursListSize);
+        assertEquals(expectedFavoriteNeighbours, serviceApi.getNeighboursFavoris());
     }
-
-    //int favNeighbours = serviceApi.removeNeighbourOnFavoris();
-    //@Test
-    //public void removeNeighbourOnFavorisListWithSuccess() {
-    //    int favNeighbours = serviceApi.removeNeighbourOnFavoris();
-    //    Neighbour neighbourOnFavoris = serviceApi.removeNeighbourOnFavoris();
-    //}
 
     // Check that the addNeighbourOnFavoris method give the expected list of favorite Neighbors
     @Test
-    public void SetNeighbourFavoriteStatusAtTrue() {
-        neighbour.setFavoris(true);
-        TestCase.assertTrue(neighbour.getIsFavoris());
+    public void addNeighbourOnFavorisWithSuccess() {
+
+        serviceApi.addNeighbourOnFavoris(serviceApi.getNeighbours().get(0));
+        serviceApi.addNeighbourOnFavoris(serviceApi.getNeighbours().get(1));
+        List<Neighbour> expectedFavoriteNeighbours = serviceApi.getNeighbours().subList(0, 2);
+        assertTrue(serviceApi.getNeighboursFavoris().containsAll(expectedFavoriteNeighbours));
+    }
+
+    // Check that the addNeighbourOnFavoris method give the expected list of favorite Neighbors
+    @Test
+    public void removeFavoriteNeighbourWithSuccess() {
+        serviceApi.addNeighbourOnFavoris(serviceApi.getNeighbours().get(0));
+        serviceApi.addNeighbourOnFavoris(serviceApi.getNeighbours().get(1));
+        serviceApi.removeNeighbourOnFavoris(serviceApi.getNeighbours().get(0));
+        assertFalse(serviceApi.getNeighboursFavoris().contains(serviceApi.getNeighbours().get(0)));
     }
 
 }

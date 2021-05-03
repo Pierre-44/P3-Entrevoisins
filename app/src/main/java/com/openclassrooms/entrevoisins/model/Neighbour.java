@@ -211,10 +211,10 @@ public class Neighbour implements Serializable {
     /**
      * Sets favoris.
      *
-     * @param favoris the favoris
+     * @param isFavoris the favorite status
      */
-    public void setFavoris(boolean favoris) {
-        this.isFavoris = favoris;
+    public void setFavoris(boolean isFavoris) {
+        this.isFavoris = isFavoris;
     }
 
     @Override

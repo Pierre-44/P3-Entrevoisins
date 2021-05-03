@@ -8,6 +8,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
+import com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourFragment;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 
 import org.junit.Before;
@@ -16,9 +17,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.pressBack;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.swipeLeft;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.matcher.ViewMatchers.assertThat;
+import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.IsNull.notNullValue;
 
@@ -68,9 +77,20 @@ public class NeighboursListTest {
         // Then : the number of element is 11
         onView(ViewMatchers.withId(R.id.fragment_list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
     }
+    /**
+     * When we click an item, the neighbour details page is displayed
+     */
+    @Test
+    public void myNeighbourList_clickOnNeighbour_shouldDisplayNeighbourDetails() {
+        //Given : Choose a neighbour in the list to see his/her details
+
+        //When : Perform a click on the item but the delete button
+
+        //Then : The neighbour details page displays
+    }
 
     /**
-     * When we clic on fab button, the  to list Activity_add_neighbour be open
+     * When we clic on fab button on neighbour list , the Activity_add_neighbour be open
      */
     @Test
     public void myNeighboursList_FabAction_shouldOpenActivity_add_neighbour() {
@@ -82,15 +102,26 @@ public class NeighboursListTest {
     }
 
     /**
-     * When we save a new neigbour, the item be add to list
+     * When we save a new neighbor, it is added to the list
      */
     @Test
-    public void GivenClickSaveButton_WhenWeAreOnNeighborAddActivityThenNeighborAddToList() {
+    public void myCompletedNeighborAddActivity_clickOnSaveButton_shouldAddNeighbourToList() {
         // Given : We complete Neighbor_Add_Activity form
 
         //When : perform click save Button
 
         //Then : Neighbor Add To List an be 13
 
+    }
+    /**
+     * When favorite list is displayed its only shows favorite neighbours
+     */
+    @Test
+    public void myFavoriteNeighboursList_containsOnlyFavorites() {
+        // Given : set 2 neighbours as favorites
+
+        // When : we display favorite list
+
+        // The number of elements is only 2 and they contain the 2 favorite neighbours' names
     }
 }
