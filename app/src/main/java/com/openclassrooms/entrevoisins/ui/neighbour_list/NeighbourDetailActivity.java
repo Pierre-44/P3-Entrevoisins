@@ -75,9 +75,6 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         mWeblink.setText(profil.getName());
         mAboutMeText.setText(profil.getAboutMe());
 
-        //Set Favorite Button
-        setFavoriteButtonDisable(profil.getIsFavoris());
-        setFavoriteButtonEnable(profil.getIsFavoris());
 
     }
 
@@ -95,43 +92,37 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     }
     //Favorites button control
 
-    @SuppressLint("ResourceAsColor")
-    private void setFavoriteButtonDisable(boolean isFavoris) {
+
+    private void setFavoriteButtonDisable() {
         mFavoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
-        ImageViewCompat.setImageTintList(mFavoriteButton, ColorStateList.valueOf(R.color.colorStarYellow));
+        //ImageViewCompat.setImageTintList(mFavoriteButton, ColorStateList.valueOf(R.color.colorStarYellow));
     }
 
-    @SuppressLint("ResourceAsColor")
-    private void setFavoriteButtonEnable(boolean isFavoris) {
+    private void setFavoriteButtonEnable() {
         mFavoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
-        ImageViewCompat.setImageTintList(mFavoriteButton, ColorStateList.valueOf(R.color.colorStarYellow));
+        //ImageViewCompat.setImageTintList(mFavoriteButton, ColorStateList.valueOf(R.color.colorStarYellow));
     }
 
     private void settingFavoriteButton() {
         if (!profil.getIsFavoris()) {
-            setFavoriteButtonDisable(profil.getIsFavoris());
+            setFavoriteButtonDisable();
         } else
-            setFavoriteButtonEnable(profil.getIsFavoris());
+            setFavoriteButtonEnable();
         mFavoriteButton.setOnClickListener(this::onClick);
     }
 
     private void onClick(View v) {
 
         if (!profil.getIsFavoris()) {
+            profil.setFavoris(true);
             mApiService.addNeighbourOnFavoris(profil);
-            setFavoriteButtonEnable(profil.getIsFavoris());
+            setFavoriteButtonEnable();
         } else {
+            profil.setFavoris(false);
             mApiService.removeNeighbourOnFavoris(profil);
-            setFavoriteButtonDisable(profil.getIsFavoris());
+            setFavoriteButtonDisable();
         }
     }
-
-    // TODO : add methode onClick  pour :
-
-    // addNeighbourOnFavoris()
-    // removeNeighbourOnFavoris()
-    //
-
 
     /**
      * Add neighbour in favorites, set message and pass it to method to display a snackBar and call method to properly set FAB
@@ -148,7 +139,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
             toastThis = "Ajout de " + mName.getText() + " aux favoris !";
         }
         snackBarThis(toastThis, view);
-        setFavoriteButtonEnable(profil.getIsFavoris());
+        setFavoriteButtonEnable();
         mApiService.addNeighbourOnFavoris(profil);
     }
 
@@ -163,7 +154,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
             toastThis = "Retrait de " + mName.getText() + " des favoris.";
         }
         snackBarThis(toastThis, view);
-        setFavoriteButtonDisable(profil.getIsFavoris());
+        setFavoriteButtonDisable();
         mApiService.removeNeighbourOnFavoris(profil);
     }
 

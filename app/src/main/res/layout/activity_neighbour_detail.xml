@@ -50,11 +50,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
         android:backgroundTint="@color/cardview_light_background"
-        android:clickable="true"
-        android:focusable="true"
         android:scaleType="center"
         tools:src="@drawable/ic_star_border_white_24dp"
-        tools:tint="@color/colorStarYellow"
+        app:tint="@null"
         app:borderWidth="0dp"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end">

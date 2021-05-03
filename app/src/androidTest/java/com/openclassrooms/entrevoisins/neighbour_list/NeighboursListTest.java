@@ -84,10 +84,33 @@ public class NeighboursListTest {
     public void myNeighbourList_clickOnNeighbour_shouldDisplayNeighbourDetails() {
         //Given : Choose a neighbour in the list to see his/her details
 
-        //When : Perform a click on the item but the delete button
+        //When : Perform a click on the item
 
         //Then : The neighbour details page displays
     }
+
+    /**
+     * When favorite list is displayed its only shows favorite neighbours
+     */
+    @Test
+    public void myFavoriteNeighboursList_containsOnlyFavorites() {
+        // Given : set 2 neighbours as favorites
+
+        // When : we display favorite list
+
+        // The number of elements is only 2 and they contain the 2 favorite neighbours' names
+    }
+
+
+    @Test
+    public void myNeigbourClickedshowOnDetailActivity() {
+        // Given : Choose a neighbour in the list to see his/her details
+
+        // When : Perform a click on the item
+
+        // Then : vérifier que le nom du TextView de la page Détail correspond au nom du voisin
+    }
+
 
     /**
      * When we clic on fab button on neighbour list , the Activity_add_neighbour be open
@@ -101,6 +124,22 @@ public class NeighboursListTest {
         // Then : Activity_add_neighbour to be open
     }
 
+    @Test
+    public void name() {
+        // Given : Clic sur voisin de la position 0
+        //clic sur bouton fav
+        // backpressed
+        // Given : Clic sur voisin de la position 1
+        //clic sur bouton fav
+        // backpressed
+        // When :
+        // Swipe left
+        // Then :
+        // Check nombre de fav 2
+        // Check list contien objec 1 et 2
+
+    }
+
     /**
      * When we save a new neighbor, it is added to the list
      */
@@ -111,17 +150,7 @@ public class NeighboursListTest {
         //When : perform click save Button
 
         //Then : Neighbor Add To List an be 13
-
-    }
-    /**
-     * When favorite list is displayed its only shows favorite neighbours
-     */
-    @Test
-    public void myFavoriteNeighboursList_containsOnlyFavorites() {
-        // Given : set 2 neighbours as favorites
-
-        // When : we display favorite list
-
-        // The number of elements is only 2 and they contain the 2 favorite neighbours' names
     }
 }
+
+
