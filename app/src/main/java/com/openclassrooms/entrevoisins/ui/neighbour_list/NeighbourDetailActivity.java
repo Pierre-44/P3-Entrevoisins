@@ -1,7 +1,5 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-import android.annotation.SuppressLint;
-import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.widget.ImageViewCompat;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -94,12 +91,12 @@ public class NeighbourDetailActivity extends AppCompatActivity {
 
 
     private void setFavoriteButtonDisable() {
-        mFavoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
+        mFavoriteButton.setImageResource(R.drawable.ic_star_border_24dp);
         //ImageViewCompat.setImageTintList(mFavoriteButton, ColorStateList.valueOf(R.color.colorStarYellow));
     }
 
     private void setFavoriteButtonEnable() {
-        mFavoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
+        mFavoriteButton.setImageResource(R.drawable.ic_star_24dp);
         //ImageViewCompat.setImageTintList(mFavoriteButton, ColorStateList.valueOf(R.color.colorStarYellow));
     }
 
@@ -134,9 +131,9 @@ public class NeighbourDetailActivity extends AppCompatActivity {
 
         String toastThis;
         if (mNameStartVowel) {
-            toastThis = "Ajout d'" + mName.getText() + " aux favoris !";
+            toastThis = "Ajout d'" + mName.getText() + " aux favoris.";
         } else {
-            toastThis = "Ajout de " + mName.getText() + " aux favoris !";
+            toastThis = "Ajout de " + mName.getText() + " aux favoris.";
         }
         snackBarThis(toastThis, view);
         setFavoriteButtonEnable();
@@ -167,6 +164,4 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     private void snackBarThis(String toastThis, View view) {
         Snackbar.make(view, toastThis, Snackbar.LENGTH_SHORT).setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_SLIDE).setBackgroundTint(getResources().getColor(R.color.colorLightGrey)).show();
     }
-
-
 }

@@ -9,6 +9,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    app:layoutManager="LinearLayoutManager"
+    android:paddingBottom="70dp"
     tools:context=".ui.neighbour_list.NeighbourFragment"
-    tools:listitem="@layout/fragment_neighbour" />
+    tools:listitem="@layout/fragment_neighbour"
+    />
