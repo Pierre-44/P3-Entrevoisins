@@ -40,13 +40,17 @@ import static org.hamcrest.core.IsNull.notNullValue;
 public class NeighboursListTest {
 
     // This is fixed
-    private static int ITEMS_COUNT = 12;
+    private static final int ITEMS_COUNT = 12;
+
+    private static final int  SELECTED_POSITION_OF_NEIGHBOURS = 3;
+
 
     private ListNeighbourActivity mActivity;
 
     @Rule
     public ActivityTestRule<ListNeighbourActivity> mActivityRule =
             new ActivityTestRule(ListNeighbourActivity.class);
+
 
     @Before
     public void setUp() {
@@ -83,10 +87,15 @@ public class NeighboursListTest {
     @Test
     public void myNeighbourList_clickOnNeighbour_shouldDisplayNeighbourDetails() {
         //Given : Choose a neighbour in the list to see his/her details
-
+        onView(withText(R.string.tab_neighbour_title))
+                .perform(click());
         //When : Perform a click on the item
-
+        //onView(
+                //.perform(RecyclerViewActions
+                //.actionOnItemAtPosition(SELECTED_POSITION_OF_NEIGHBOURS,click()));
         //Then : The neighbour details page displays
+        onView(withId(R.id.fragment_list_neighbours))
+                .check(matches(isDisplayed()));
     }
 
     /**
@@ -101,19 +110,21 @@ public class NeighboursListTest {
         // The number of elements is only 2 and they contain the 2 favorite neighbours' names
     }
 
-
+    /**
+     * When we click on neighbour , the Activity_add_neighbour be open
+     */
     @Test
-    public void myNeigbourClickedshowOnDetailActivity() {
+    public void myNeighbourclicked_shouldDisplayNeighbourNameOnDetails() {
         // Given : Choose a neighbour in the list to see his/her details
 
         // When : Perform a click on the item
 
-        // Then : vérifier que le nom du TextView de la page Détail correspond au nom du voisin
+        // Then : Check that the name of the TextView on the Detail page matches the name of the neighbor
     }
 
 
     /**
-     * When we clic on fab button on neighbour list , the Activity_add_neighbour be open
+     * When we click on fab button on neighbour list , the Activity_add_neighbour be open
      */
     @Test
     public void myNeighboursList_FabAction_shouldOpenActivity_add_neighbour() {
@@ -124,19 +135,22 @@ public class NeighboursListTest {
         // Then : Activity_add_neighbour to be open
     }
 
+    /**
+     * When we click on fab button on neighbour list , the Activity_add_neighbour be open
+     */
     @Test
     public void name() {
-        // Given : Clic sur voisin de la position 0
-        //clic sur bouton fav
-        // backpressed
-        // Given : Clic sur voisin de la position 1
-        //clic sur bouton fav
-        // backpressed
-        // When :
-        // Swipe left
-        // Then :
-        // Check nombre de fav 2
-        // Check list contien objec 1 et 2
+        // Given : favorites list clear and check that list is empty
+
+        // Given : perform click on the neighbor of position 0 then click on the fav button then click on back
+
+        // Given : perform click on the neighbor of position 1 then click on the fav button then click on back
+
+        // When : perform Swipe left
+
+        // Then : check that the number of favorites in the list is 2
+
+        // Then : check that the favorites in the list are objects 1 and 2
 
     }
 

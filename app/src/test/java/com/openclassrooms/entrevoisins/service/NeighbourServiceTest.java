@@ -3,8 +3,6 @@ package com.openclassrooms.entrevoisins.service;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
-import junit.framework.TestCase;
-
 import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,6 +38,7 @@ public class NeighbourServiceTest {
         List<Neighbour> expectedNeighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
         assertThat(neighbours, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedNeighbours.toArray()));
     }
+
     // Check that the deleteNeighbor method removes neighbor from the list of neighbors
     @Test
     public void deleteNeighbourWithSuccess() {
@@ -56,14 +55,13 @@ public class NeighbourServiceTest {
         serviceApi.createNeighbour(neighbourToAdd);
         assertEquals(serviceApi.getNeighbours().size(), nbNeighbours + 1);
     }
+
     // Check that the addNeighbourOnFavoris method give the list of favorite Neighbors
     @Test
     public void getFavoriteNeighboursWithSuccess() {
-        //int neighboursListSize = serviceApi.getNeighbours().size();
         serviceApi.addNeighbourOnFavoris(serviceApi.getNeighbours().get(0));
         serviceApi.addNeighbourOnFavoris(serviceApi.getNeighbours().get(1));
         serviceApi.addNeighbourOnFavoris(serviceApi.getNeighbours().get(2));
-        //List<Neighbour> expectedFavoriteNeighbours = serviceApi.getNeighbours().subList(neighboursListSize - 3, neighboursListSize);
         assertEquals(3, serviceApi.getNeighboursFavoris().size());
     }
 
@@ -85,5 +83,4 @@ public class NeighbourServiceTest {
         serviceApi.removeNeighbourOnFavoris(serviceApi.getNeighbours().get(0));
         assertFalse(serviceApi.getNeighboursFavoris().contains(serviceApi.getNeighbours().get(0)));
     }
-
 }
