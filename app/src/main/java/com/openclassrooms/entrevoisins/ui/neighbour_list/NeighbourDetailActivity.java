@@ -1,7 +1,6 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -67,7 +66,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         mName.setText(profil.getName());
         mAddress.setText(profil.getAddress());
         mPhone.setText(profil.getPhoneNumber());
-        mWeblink.setText(profil.getName());
+        mWeblink.setText(profil.getWeblink());
         mAboutMeText.setText(profil.getAboutMe());
     }
 
@@ -91,10 +90,10 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         mFavoriteButton.setOnClickListener(this::onClick);
     }
     private void setFavoriteButtonDisable() {
-        mFavoriteButton.setImageResource(R.drawable.ic_star_border_24dp);
+        mFavoriteButton.setImageResource(R.drawable.ic_star_grey_24dp);
     }
     private void setFavoriteButtonEnable() {
-        mFavoriteButton.setImageResource(R.drawable.ic_star_24dp);
+        mFavoriteButton.setImageResource(R.drawable.ic_star_yellow_24dp);
     }
 
 

@@ -26,11 +26,9 @@ import butterknife.ButterKnife;
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
     private final List<Neighbour> mNeighbours;
-    private final int tabposition;
 
-    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items, int position) {
+    public MyNeighbourRecyclerViewAdapter(List<Neighbour> items) {
         mNeighbours = items;
-        this.tabposition = position;
     }
 
     @Override
@@ -48,13 +46,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 .load(neighbour.getAvatarUrl())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
-
-        // Control DeleteButton visibiliy if si favorite
-        if (tabposition == 1){
-            holder.mDeleteButton.setVisibility(View.GONE);
-
-        }else  holder.mDeleteButton.setVisibility(View.VISIBLE);
-
 
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override

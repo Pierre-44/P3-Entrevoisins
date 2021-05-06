@@ -70,7 +70,7 @@ public class Neighbour implements Serializable {
         this.phoneNumber = phoneNumber;
         this.weblink = weblink;
         this.aboutMe = aboutMe;
-        this.isFavoris = false;
+        this.isFavoris = isFavorite;
     }
 
     /**

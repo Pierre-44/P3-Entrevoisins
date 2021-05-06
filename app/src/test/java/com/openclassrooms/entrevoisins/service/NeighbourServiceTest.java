@@ -23,8 +23,6 @@ import static org.junit.Assert.assertTrue;
 public class NeighbourServiceTest {
 
     private NeighbourApiService serviceApi;
-    Neighbour neighbour;
-
 
     @Before
     public void setup() {

@@ -90,8 +90,8 @@ public class AddNeighbourActivity extends AppCompatActivity {
     void addNeighbour() {
         Neighbour neighbour = new Neighbour(
                 System.currentTimeMillis(),
-                mNeighbourImage.getBytes().toString(),
                 nameInput.getEditText().getText().toString(),
+                mNeighbourImage,
                 addressInput.getEditText().getText().toString(),
                 phoneInput.getEditText().getText().toString(),
                 weblinkInput.getEditText().getText().toString(),
@@ -108,7 +108,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
      * @return String
      */
     String randomImage() {
-        return "https://i.pravatar.cc/150?u=" + System.currentTimeMillis();
+        return "https://i.pravatar.cc/500?u=" + System.currentTimeMillis();
     }
 
     /**
