@@ -80,6 +80,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Set name on toolbar
         getSupportActionBar().setTitle(profil.getName());
+
     }
     //Favorites button control
     private void settingFavoriteButton() {
