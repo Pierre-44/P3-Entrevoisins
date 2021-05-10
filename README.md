@@ -5,7 +5,7 @@ Elle permet de mettre en lien des personnes d'un quartier afin qu'ils se rendent
 garde d’animaux, petit bricolage, troc d’objets, cours particuliers...
 de nombreuses options s’offrent aux utilisateurs !
 
-# Installation et execution application 
+# Installation et exécution application 
 
 1. Télécharger le ZIP ou cloner le projet avec la méthode https ou ssh présent à ce lien : https://github.com/Pierre-44/P3-Entrevoisins.
 
@@ -19,21 +19,21 @@ de nombreuses options s’offrent aux utilisateurs !
 
 6. lancer l'application sur l'émulateur ou l'appareil avec run.
 
-# Execution des tests instrumentalisé
+# Exécution des tests instrumentalisé
 
-1. Les tests instrumentalisé sont a executer depuis NeighboursListTest
+1. Les tests instrumentalisé sont à exécuter depuis NeighboursListTest
 
-2. lancer l'enssemble des tests de la classe à la lgine "public class NeighboursListTest" en cliquant sur la double fleche verte dans la marge
+2. lancer l'ensemble des tests de la classe à la ligne "public class NeighboursListTest" en cliquant sur la double fleche verte dans la marge
 
-3. lancer un test individuellement en cliquant sur la fleche verte dans la marge
+3. lancer un test individuellement en cliquant sur la flèche verte dans la marge
 
-# Execution tests unitaire
+# Exécution tests unitaire
 
-1. Les tests unitaire sont a executer depuis NeighbourServiceTest
+1. Les tests unitaire sont à exécuter depuis NeighbourServiceTest
 
-2. lancer l'enssemble des tests de la classe à la lgine "public class NeighbourServiceTest" en cliquant sur la double fleche verte dans la marge
+2. lancer l'ensemble des tests de la classe à la ligne "public class NeighbourServiceTest" en cliquant sur la double fleche verte dans la marge
 
-3. lancer un test individuellement en cliquant sur la fleche verte dans la marge
+3. lancer un test individuellement en cliquant sur la flèche verte dans la marge
 
 # Fonctionnalités
 
