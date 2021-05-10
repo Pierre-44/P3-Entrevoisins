@@ -2,6 +2,7 @@
 package com.openclassrooms.entrevoisins.neighbour_list;
 
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.contrib.RecyclerViewActions;
@@ -33,15 +34,15 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.assertThat;
 import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.hasMinimumChildCount;
-import static androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion.withItemCount;
 import static org.hamcrest.core.AllOf.allOf;
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.hamcrest.core.IsNull.notNullValue;
-
 
 /**
  * Test class for list of neighbours
@@ -51,11 +52,11 @@ public class NeighboursListTest {
 
     // This is fixed
     private static final int ITEMS_COUNT = 12;
-    private static final int FAVORITES_ITEMS_COUNT = 2;
-    private final List<Neighbour> neighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
-    private static final int NEIGHBOUR_TESTED_1 = 0; // test of displayed neighbour
-    private static final int NEIGHBOUR_TESTED_2 = 2; // test of favorite adding
-    private static final int NEIGHBOUR_TESTED_3 = 3; // test adding to favorite and deleting
+    private static final int FAVORITES_ITEMS_COUNT_2 = 2;
+    private List<Neighbour> neighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
+    private static final int NEIGHBOUR_TESTED_1 = 0;
+    private static final int NEIGHBOUR_TESTED_2 = 2;
+    private static final int NEIGHBOUR_TESTED_3 = 3;
 
     public ActivityScenario mActivity;
     public NeighbourApiService service;
@@ -68,6 +69,7 @@ public class NeighboursListTest {
         mActivity = mActivityRule.getScenario();
         assertThat(mActivity, notNullValue());
         service = DI.getNeighbourApiService();
+        neighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
     }
 
     /**
@@ -85,12 +87,12 @@ public class NeighboursListTest {
      */
     @Test
     public void myNeighboursList_deleteAction_shouldRemoveItem() {
-        // Given : We remove the element at position 12
+        // Given : We remove the element at position 0
         onView(getViewByContentDescription(NeighbourFragment.NEIGHBOURS_FRAGMENT_LIST))
                 .check(withItemCount(ITEMS_COUNT));
         // When perform a click on a delete icon
         onView(getViewByContentDescription(NeighbourFragment.NEIGHBOURS_FRAGMENT_LIST))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(11, new DeleteViewAction()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, new DeleteViewAction()));
         // Then : the number of element is 11
         onView(getViewByContentDescription(NeighbourFragment.NEIGHBOURS_FRAGMENT_LIST))
                 .check(withItemCount(ITEMS_COUNT - 1));
@@ -99,8 +101,7 @@ public class NeighboursListTest {
     /**
      * When we click an item, the neighbour details page is displayed
      */
-
-     @Test
+    @Test
     public void myNeighbourList_clickOnNeighbour_shouldDisplayNeighbourDetails() {
         //Given : Choose a neighbour in the list to see his/her details
         onView(getViewByContentDescription(NeighbourFragment.NEIGHBOURS_FRAGMENT_LIST))
@@ -114,7 +115,6 @@ public class NeighboursListTest {
                 .check(matches(isDisplayed()));
     }
 
-
     /**
      * When we click on neighbour , the NeighbourDetailActivity display correct neighbour name
      */
@@ -127,8 +127,7 @@ public class NeighboursListTest {
         onView(withId(R.id.activity_neighbour_detail))
                 .check(matches(isDisplayed()));
         // Then : Check that the name of the TextView on the Detail page matches the name of the neighbor
-        // TODO : comment renvoyer le Nom afficher de la toolbar_detail ?
-        //onView(withId(R.id.toolbar_detail)).check(matches(withText(service.getNeighbours().get(NEIGHBOUR_TESTED_1).getName())));
+        onView(allOf(instanceOf(TextView.class), withParent(withId(R.id.toolbar_detail)))).check(matches(withText(service.getNeighbours().get(NEIGHBOUR_TESTED_1).getName())));
     }
 
     /**
@@ -144,28 +143,23 @@ public class NeighboursListTest {
                 .perform(swipeLeft());
         // The number of elements is only 2 and they contain the 2 favorite neighbours names
         onView(getViewByContentDescription(NeighbourFragment.FAVORITES_NEIGHBOURS_FRAGMENT_LIST))
-                .check(withItemCount(FAVORITES_ITEMS_COUNT))
+                .check(withItemCount(FAVORITES_ITEMS_COUNT_2))
                 .check(matches(hasDescendant(withText(service.getNeighbours().get(NEIGHBOUR_TESTED_2).getName()))))
                 .check(matches(hasDescendant(withText(service.getNeighbours().get(NEIGHBOUR_TESTED_3).getName()))));
     }
 
     /**
-     * When we add 2 neighbour on favorite by clicking on fav button on details page, and swipe to favorite , the correct favorite neighbours are shown
+     * When we add 2 neighbour on favorite by clicking on fav button on details page, and swipe to favorite , the 2 favorites neighbours are shown
      */
     @Test
-    public void myClickAndAddToFavoriteTwoNeighboursAndBack_swipeLeftOnListNeighbourActivity_displayedTheTwoNeighbourOnFavoriteList() {
-        // Given : favorites list clear and check that list is empty
-        // TODO : clear fav list
-        //  onView(getViewByContentDescription(NeighbourFragment.FAVORITES_NEIGHBOURS_FRAGMENT_LIST))).clear(());
-
-
+    public void myClickAndAddToFavoriteTwoNeighbours_swipeLeftOnListNeighbourActivity_displayedTheTwoNeighbourOnFavoriteList() {
         // Given : perform click on the neighbor of position 0 then click on the fav button then click on back
-        onView(getViewByContentDescription(NeighbourFragment.FAVORITES_NEIGHBOURS_FRAGMENT_LIST))
+        onView(getViewByContentDescription(NeighbourFragment.NEIGHBOURS_FRAGMENT_LIST))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(NEIGHBOUR_TESTED_2, click()));
         onView(withId(R.id.button_favoris)).perform(click());
         pressBack();
         // Given : perform click on the neighbor of position 1 then click on the fav button then click on back
-        onView(getViewByContentDescription(NeighbourFragment.FAVORITES_NEIGHBOURS_FRAGMENT_LIST))
+        onView(getViewByContentDescription(NeighbourFragment.NEIGHBOURS_FRAGMENT_LIST))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(NEIGHBOUR_TESTED_3, click()));
         onView(withId(R.id.button_favoris)).perform(click());
         pressBack();
@@ -174,44 +168,53 @@ public class NeighboursListTest {
                 .perform(swipeLeft());
         // Then : check that the number of favorites in the list is 2
         onView(getViewByContentDescription(NeighbourFragment.FAVORITES_NEIGHBOURS_FRAGMENT_LIST))
-                .check(withItemCount(FAVORITES_ITEMS_COUNT));
-        // Then : check that the favorites in the list are objects 1 and 2
+                .check(withItemCount(2));
+
+    }
+
+    /**
+     * When we add 2 neighbour on favorite by clicking on fav button on details page, and swipe to favorite , the correct favorite neighbours are shown
+     */
+    @Test
+    public void myClickAgainOnFavoriteButton_RemoveFavoriteOfList() {
+        // Given : perform click on the neighbor then click on the fav button then click on back
+        onView(getViewByContentDescription(NeighbourFragment.NEIGHBOURS_FRAGMENT_LIST))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(NEIGHBOUR_TESTED_2, click()));
+        onView(withId(R.id.button_favoris)).perform(click());
+        pressBack();
+        // When : perform Swipe left to go to favorites
+        onView(getViewByContentDescription(NeighbourFragment.NEIGHBOURS_FRAGMENT_LIST))
+                .perform(swipeLeft());
+        // When : Check the favorite list contain 1 favorite
         onView(getViewByContentDescription(NeighbourFragment.FAVORITES_NEIGHBOURS_FRAGMENT_LIST))
-                .check(matches(isDescendantOfA(withText(service.getNeighbours().get(NEIGHBOUR_TESTED_2).getName()))))
-                .check(matches(isDescendantOfA(withText(service.getNeighbours().get(NEIGHBOUR_TESTED_3).getName()))));
+                .check(withItemCount(1));
+        // When : Click again on favorite button
+        onView(getViewByContentDescription(NeighbourFragment.FAVORITES_NEIGHBOURS_FRAGMENT_LIST))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.button_favoris)).perform(click());
+        pressBack();
+        swipeLeft();
+        // Then : check that the favorites are 0
+        onView(getViewByContentDescription(NeighbourFragment.FAVORITES_NEIGHBOURS_FRAGMENT_LIST))
+                .check(withItemCount(0));
     }
 
     /**
      * When we click on fab button on neighbour list , the addNeighbourActivity be open
      */
-    // TODO : test to write
     @Test
     public void myNeighboursList_FabAction_shouldOpenActivity_add_neighbour() {
-        // Given : Click Neighbour Fab Button
-
-        // When : we Are On Neighbour list
-
+        // Given : We Are On Neighbour list
+        onView(getViewByContentDescription(NeighbourFragment.NEIGHBOURS_FRAGMENT_LIST));
+        // When : Click Neighbour Fab Button
+        onView(withId(R.id.add_neighbour)).perform(click());
         // Then : Activity_add_neighbour to be open
-
+        onView(withId(R.id.activity_add_neighbour))
+                .check(matches(isDisplayed()));
     }
-
-    /**
-     * When we save a new neighbor, it is added to the list
-     */
-    @Test
-    public void myCompletedNeighborAddActivity_clickOnSaveButton_shouldAddNeighbourToList() {
-        // Given : We complete Neighbor_Add_Activity form
-
-        //When : perform click save Button
-
-        //Then : Neighbor Add To List an be 13
-    }
-
 
     private static Matcher<View> getViewByContentDescription(int contentDescription) {
         return allOf(withId(R.id.fragment_list_neighbours), withContentDescription(String.valueOf(contentDescription)));
-
-
     }
 }
 

@@ -82,6 +82,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(profil.getName());
 
     }
+
     //Favorites button control
     private void settingFavoriteButton() {
         if (!profil.getIsFavoris()) {
@@ -90,9 +91,11 @@ public class NeighbourDetailActivity extends AppCompatActivity {
             setFavoriteButtonEnable();
         mFavoriteButton.setOnClickListener(this::onClick);
     }
+
     private void setFavoriteButtonDisable() {
         mFavoriteButton.setImageResource(R.drawable.ic_star_grey_24dp);
     }
+
     private void setFavoriteButtonEnable() {
         mFavoriteButton.setImageResource(R.drawable.ic_star_yellow_24dp);
     }
@@ -114,6 +117,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
 
     /**
      * Add neighbour in favorites, set message and pass it to method to display a snackBar and call method to properly set FAB
+     *
      * @param v the view
      */
     private void addNeighbourOnFavoris(View v) {
@@ -130,8 +134,10 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         setFavoriteButtonEnable();
         mApiService.addNeighbourOnFavoris(profil);
     }
+
     /**
      * Remove neighbour from favorites, set msg and pass it to method to display a snackBar and call method to properly set FAB
+     *
      * @param v the view
      */
     private void removeNeighbourOnFavoris(View v) {
@@ -151,7 +157,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
      * Display snackBar to confirm action on favorite button on neighbour
      *
      * @param toastThis this msg to display
-     * @param v the view
+     * @param v         the view
      */
     private void snackBarThis(String toastThis, View v) {
         Snackbar.make(v, toastThis, Snackbar.LENGTH_SHORT)

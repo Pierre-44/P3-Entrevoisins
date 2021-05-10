@@ -66,7 +66,6 @@ public class NeighbourServiceTest {
     // Check that the addNeighbourOnFavoris method give the expected list of favorite Neighbors
     @Test
     public void addNeighbourOnFavorisWithSuccess() {
-
         serviceApi.addNeighbourOnFavoris(serviceApi.getNeighbours().get(0));
         serviceApi.addNeighbourOnFavoris(serviceApi.getNeighbours().get(1));
         List<Neighbour> expectedFavoriteNeighbours = serviceApi.getNeighbours().subList(0, 2);
