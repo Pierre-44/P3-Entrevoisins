@@ -30,6 +30,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.swipeLeft;
+import static androidx.test.espresso.action.ViewActions.swipeRight;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.assertThat;
 import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
@@ -52,11 +53,12 @@ public class NeighboursListTest {
 
     // This is fixed
     private static final int ITEMS_COUNT = 12;
-    private static final int FAVORITES_ITEMS_COUNT_2 = 2;
+    private static final int FAVORITES_ITEMS_COUNT = 2;
     private List<Neighbour> neighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
     private static final int NEIGHBOUR_TESTED_1 = 0;
     private static final int NEIGHBOUR_TESTED_2 = 2;
     private static final int NEIGHBOUR_TESTED_3 = 3;
+    private static final int NEIGHBOUR_TESTED_4 = 4;
 
     public ActivityScenario mActivity;
     public NeighbourApiService service;
@@ -143,7 +145,7 @@ public class NeighboursListTest {
                 .perform(swipeLeft());
         // The number of elements is only 2 and they contain the 2 favorite neighbours names
         onView(getViewByContentDescription(NeighbourFragment.FAVORITES_NEIGHBOURS_FRAGMENT_LIST))
-                .check(withItemCount(FAVORITES_ITEMS_COUNT_2))
+                .check(withItemCount(FAVORITES_ITEMS_COUNT))
                 .check(matches(hasDescendant(withText(service.getNeighbours().get(NEIGHBOUR_TESTED_2).getName()))))
                 .check(matches(hasDescendant(withText(service.getNeighbours().get(NEIGHBOUR_TESTED_3).getName()))));
     }
@@ -169,7 +171,6 @@ public class NeighboursListTest {
         // Then : check that the number of favorites in the list is 2
         onView(getViewByContentDescription(NeighbourFragment.FAVORITES_NEIGHBOURS_FRAGMENT_LIST))
                 .check(withItemCount(2));
-
     }
 
     /**
@@ -179,7 +180,7 @@ public class NeighboursListTest {
     public void myClickAgainOnFavoriteButton_RemoveFavoriteOfList() {
         // Given : perform click on the neighbor then click on the fav button then click on back
         onView(getViewByContentDescription(NeighbourFragment.NEIGHBOURS_FRAGMENT_LIST))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(NEIGHBOUR_TESTED_2, click()));
+                .perform(RecyclerViewActions.actionOnItemAtPosition(NEIGHBOUR_TESTED_4, click()));
         onView(withId(R.id.button_favoris)).perform(click());
         pressBack();
         // When : perform Swipe left to go to favorites

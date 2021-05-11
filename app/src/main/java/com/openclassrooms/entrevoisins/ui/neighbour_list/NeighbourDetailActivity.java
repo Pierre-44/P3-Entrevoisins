@@ -1,5 +1,6 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -159,6 +160,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
      * @param toastThis this msg to display
      * @param v         the view
      */
+
     private void snackBarThis(String toastThis, View v) {
         Snackbar.make(v, toastThis, Snackbar.LENGTH_SHORT)
                 .setAnimationMode(BaseTransientBottomBar.ANIMATION_MODE_SLIDE)
