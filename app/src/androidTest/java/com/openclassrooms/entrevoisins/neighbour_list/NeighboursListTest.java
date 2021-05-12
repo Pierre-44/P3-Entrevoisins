@@ -19,6 +19,7 @@ import com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourFragment;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 
 import org.hamcrest.Matcher;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -51,7 +52,6 @@ import static org.hamcrest.core.IsNull.notNullValue;
 @RunWith(AndroidJUnit4.class)
 public class NeighboursListTest {
 
-    // This is fixed
     private static final int ITEMS_COUNT = 12;
     private static final int FAVORITES_ITEMS_COUNT = 2;
     private List<Neighbour> neighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
@@ -61,7 +61,7 @@ public class NeighboursListTest {
     private static final int NEIGHBOUR_TESTED_4 = 4;
 
     public ActivityScenario mActivity;
-    public NeighbourApiService service;
+    NeighbourApiService service;
 
     @Rule
     public ActivityScenarioRule mActivityRule = new ActivityScenarioRule(ListNeighbourActivity.class);
@@ -72,6 +72,14 @@ public class NeighboursListTest {
         assertThat(mActivity, notNullValue());
         service = DI.getNeighbourApiService();
         neighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
+    }
+
+    @After
+    public void initData(){
+        neighbours.get(NEIGHBOUR_TESTED_1).setFavoris(false);
+        neighbours.get(NEIGHBOUR_TESTED_2).setFavoris(false);
+        neighbours.get(NEIGHBOUR_TESTED_3).setFavoris(false);
+        neighbours.get(NEIGHBOUR_TESTED_4).setFavoris(false);
     }
 
     /**
@@ -218,5 +226,3 @@ public class NeighboursListTest {
         return allOf(withId(R.id.fragment_list_neighbours), withContentDescription(String.valueOf(contentDescription)));
     }
 }
-
-
