@@ -15,14 +15,10 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      * getItem is called to instantiate the fragment for the given page.
      *
      * @param mPosition position of fragment
-     * @return position of fragment 1 or 2
      */
     @Override
     public Fragment getItem(int mPosition) {
-        if (mPosition == 0) {
-            return NeighbourFragment.newInstance(0);
-        }
-        return NeighbourFragment.newInstance(1);
+        return NeighbourFragment.newInstance(mPosition);
     }
 
     /**

@@ -105,12 +105,10 @@ public class NeighbourDetailActivity extends AppCompatActivity {
     private void onClick(View v) {
         if (!profil.getIsFavoris()) {
             profil.setFavoris(true);
-            mApiService.addNeighbourOnFavoris(profil);
-            addNeighbourOnFavoris(v);
+           addNeighbourOnFavoris(v);
             setFavoriteButtonEnable();
         } else {
             profil.setFavoris(false);
-            mApiService.removeNeighbourOnFavoris(profil);
             removeNeighbourOnFavoris(v);
             setFavoriteButtonDisable();
         }
