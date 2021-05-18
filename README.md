@@ -48,4 +48,3 @@ de nombreuses options s’offrent aux utilisateurs !
 * Mettre un voisin en favoris depuis la page de détails.
 
 * Afficher la liste des voisins favoris.
-
